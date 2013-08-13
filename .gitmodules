@@ -1,0 +1,3 @@
+[submodule "src/main/resources/venus/node_modules/venus"]
+	path = src/main/resources/venus/node_modules/venus
+	url = https://github.com/vaeroon/venus.js.git

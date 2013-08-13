@@ -1,0 +1,51 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="ant.xsl"?>
+<project name="mavenus" default="package" basedir="..">
+    <description>
+        <![CDATA[
+            The build file manages all build targets including: 1. package. The all target governs the entire build sequence. 
+        ]]>
+    </description>
+	
+    <property environment="env"/>
+	<property file="build/build.properties"/>
+     
+    <property file="${user.home}/.ant.properties"/>
+      
+    <target name="init" unless="build.isInited">
+        <description>
+            <![CDATA[
+                <p>
+                    Initialization routine called by all atomic build targets.
+                </p>
+            ]]>     
+        </description>
+    	<property name="build.isInited" value="true"/>
+    </target>
+    
+    <target name="package" depends="init">
+        <description>
+            <![CDATA[
+                <p>
+                    Output the build artifacts to distribution site.
+                </p>
+            ]]> 
+        </description>
+        <delete file="${release.dir}/${deployable.prefix}_${devstream.name}.jar"/>
+        <zip destfile="${release.dir}/${deployable.prefix}_${devstream.name}.jar">
+            <fileset file="${dist.path}/*.jar"/>
+        </zip>
+    	<echo message="Package is done with ${release.dir}/${deployable.prefix}_${devstream.name}.jar" />
+    </target>
+</project>
+
+
+
+
+
+
+
+
+
+
+

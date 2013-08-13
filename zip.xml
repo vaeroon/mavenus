@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="ant.xsl"?>
+<project name="mavenus" default="unzip">
+    <target name="zip">
+        <zip destfile="target/classes/venus.zip" basedir="src/main/resources/venus" />
+    </target>
+    <target name="unzip">
+        <unzip src="venus.zip" dest="./venus" />
+    </target>
+</project>
